@@ -1,4 +1,4 @@
-"""library URL Configuration
+"""todo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -16,16 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from mainapp.views import AuthorModelViewSet, ArticleViewSet, BookViewSet, BiographyViewSet
-
+from mainapp.views import UserViewSet
 
 router = DefaultRouter()
-router.register('authors', AuthorModelViewSet)
-router.register('biography', BiographyViewSet)
-router.register('article', ArticleViewSet)
-router.register('book', BookViewSet)
-
-
+router.register('users', UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
