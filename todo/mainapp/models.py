@@ -7,3 +7,10 @@ class User(models.Model):
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
     email = models.CharField(max_length=64, unique=True)
+
+
+class Client(models.Model):
+    uid = models.UUIDField(primary_key=True, default=uuid4)
+    first_name = models.CharField(max_length=64)
+    last_name = models.CharField(max_length=64)
+    email = models.CharField(max_length=64, unique=True)
