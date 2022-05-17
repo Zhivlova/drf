@@ -1,9 +1,18 @@
 from rest_framework.viewsets import ModelViewSet
-from .models import User
-from .serializers import UserModelSerializer
+from .models import User, Header, Footer
+from .serializers import UserModelSerializer, HeaderModelSerializer, FooterModelSerializer
 
 
-class UserViewSet(ModelViewSet):
+class UserModelViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserModelSerializer
 
+
+class HeaderModelViewSet(ModelViewSet):
+    queryset = Header.objects.all()
+    serializer_class = HeaderModelSerializer
+
+
+class FooterModelViewSet(ModelViewSet):
+    queryset = Footer.objects.all()
+    serializer_class = FooterModelSerializer
