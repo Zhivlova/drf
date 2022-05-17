@@ -1,7 +1,7 @@
 from typing import Type
 
 from rest_framework.serializers import HyperlinkedModelSerializer
-from .models import User, Client
+from .models import User, Header, Footer
 
 
 class UserModelSerializer(HyperlinkedModelSerializer):
@@ -9,7 +9,14 @@ class UserModelSerializer(HyperlinkedModelSerializer):
         model = User
         fields = '__all__'
 
-class ClientModelSerializer(HyperlinkedModelSerializer):
+
+class HeaderModelSerializer(HyperlinkedModelSerializer):
     class Meta:
-        model = Client
+        model = Header
+        fields = '__all__'
+
+
+class FooterModelSerializer(HyperlinkedModelSerializer):
+    class Meta:
+        model = Footer
         fields = '__all__'

@@ -1,24 +1,26 @@
 import React from 'react';
 import axios from 'axios';
-import logo from './logo.svg';
+
 import './App.css';
-import AuthorList from './components/Author.js'
+import UserList from './components/User.js'
+import HeaderList from './components/Header.js'
+import FooterList from './components/Footer.js'
 
 class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            'authors': []
+            'users': []
        }
     }
 
     componentDidMount() {
-        axios.get('http://127.0.0.1:8000/api/authors')
+        axios.get('http://127.0.0.1:8000/api/users')
             .then(response => {
-                const authors = response.data
+                const users = response.data
                     this.setState(
                     {
-                        'authors': authors
+                        'users': users
                     }
                 )
             }).catch(error => console.log(error))
@@ -29,7 +31,9 @@ class App extends React.Component {
     render () {
         return (
             <div>
-                <AuthorList authors={this.state.authors} />
+                <HeaderList headers={this.state.header} />
+                <UserList users={this.state.users} />
+                <FooterList footers={this.state.footer} />
             </div>
         )
     }
