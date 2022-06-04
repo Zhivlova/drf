@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.viewsets import ModelViewSet
 from .models import Project, TODO
@@ -49,5 +49,6 @@ class ProjectModelViewSet(ModelViewSet):
 
 
 class TODOModelViewSet(ModelViewSet):
+    permission_classes = [permissions.IsAuthenticated]
     queryset = TODO.objects.all()
     serializer_class = TODOModelSerializer
