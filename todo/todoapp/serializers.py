@@ -1,6 +1,6 @@
 from typing import Type
 
-from rest_framework.serializers import HyperlinkedModelSerializer
+from rest_framework.serializers import HyperlinkedModelSerializer, ModelSerializer
 from .models import Project, TODO
 
 class ProjectModelSerializer(HyperlinkedModelSerializer):
@@ -9,7 +9,7 @@ class ProjectModelSerializer(HyperlinkedModelSerializer):
         fields = '__all__'
 
 
-class TODOModelSerializer(HyperlinkedModelSerializer):
+class TODOModelSerializer(ModelSerializer):
     class Meta:
         model = TODO
         fields = '__all__'
