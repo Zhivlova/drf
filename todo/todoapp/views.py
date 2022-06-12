@@ -1,6 +1,10 @@
 from rest_framework import viewsets, permissions
 from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.response import Response
+from rest_framework.viewsets import ModelViewSet, ViewSet
+
+from mainapp.models import User
+from mainapp.serializers import UserModelSerializer
 from .models import Project, TODO
 from .serializers import ProjectModelSerializer, TODOModelSerializer
 from django_filters import rest_framework as filters
@@ -52,3 +56,8 @@ class TODOModelViewSet(ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     queryset = TODO.objects.all()
     serializer_class = TODOModelSerializer
+
+
+
+
+

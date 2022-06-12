@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'mainapp',
     'todoapp',
     'django_filters',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -146,6 +147,8 @@ REST_FRAMEWORK = {
 
 
     ],
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
+    
     #'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     #'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     #'PAGE_SIZE': 100
