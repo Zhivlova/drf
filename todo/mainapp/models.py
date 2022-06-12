@@ -8,6 +8,12 @@ class User(models.Model):
     last_name = models.CharField(max_length=64)
     email = models.CharField(max_length=64, unique=True)
 
+    class Status(models.IntegerChoices):
+        is_superuser = 1
+        is_staff = 2
+
+    status = models.IntegerField(choices=Status.choices)
+
 
 class Header(models.Model):
     logo_icon = models.ImageField

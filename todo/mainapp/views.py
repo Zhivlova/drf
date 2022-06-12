@@ -1,8 +1,8 @@
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import ModelViewSet, ViewSet
 from .models import User, Header, Footer
-from .serializers import UserModelSerializer, HeaderModelSerializer, FooterModelSerializer
+from .serializers import UserModelSerializer, HeaderModelSerializer, FooterModelSerializer, UserModelSerializer2
 from rest_framework import viewsets
 
 
@@ -40,3 +40,15 @@ class HeaderModelViewSet(ModelViewSet):
 class FooterModelViewSet(ModelViewSet):
     queryset = Footer.objects.all()
     serializer_class = FooterModelSerializer
+
+
+class StatusAPIView(ViewSet):
+    queryset = User.objects.all()
+    serializer = UserModelSerializer
+
+    def get_serializer_class(self):
+        if self.request.version == '1':
+            return UserModelSerializer
+        return UserModelSerializer2
+
+

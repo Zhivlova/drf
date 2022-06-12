@@ -10,6 +10,12 @@ class UserModelSerializer(HyperlinkedModelSerializer):
         fields = '__all__'
 
 
+class UserModelSerializer2(HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = 'first_name'
+
+
 class HeaderModelSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = Header
